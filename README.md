@@ -31,8 +31,8 @@ The rest should be obvious from the surrounding code.
 
 The `Vcf` dependencies are minimal, but still worth remembering:
 
-- `glib-2.0` (>= 2.50)
-- `gobject-2.0` (>= 2.50)
+- `glib-2.0` (≥ 2.50)
+- `gobject-2.0` (≥ 2.50)
 - `meson`
 - `ninja`
 
