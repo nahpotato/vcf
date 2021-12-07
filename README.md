@@ -46,7 +46,7 @@ meson build
 ninja -C build
 ```
 
-and you're done :)
+at the root of this repo, and you're done :)
 
 ## License
 
