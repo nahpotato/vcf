@@ -50,6 +50,8 @@ at the root of this repo, and you're done :)
 
 ## License
 
-Vcf is distributed under the terms of the GNU Lesser General Public License 3.0.
+`Vcf` is distributed under the terms of the GNU Lesser General Public License
+3.0.
+
 You can check its details in the `COPYING` and `COPYING.LESSER` files available
 in the root of this repository.
