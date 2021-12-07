@@ -13,3 +13,7 @@ indent_size = 2
 [*.vala]
 indent_style = space
 indent_size = 4
+
+[vcf.doap]
+indent_style = space
+indent_size = 2
