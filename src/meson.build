@@ -21,8 +21,8 @@ vcf_sources = [
 ]
 
 vcf_deps = [
-  dependency('glib-2.0', version : '>=2.70'),
-  dependency('gobject-2.0', version : '>=2.70'),
+  dependency('glib-2.0', version : '>=2.50'),
+  dependency('gobject-2.0', version : '>=2.50'),
 ]
 
 vcf_vala_flags = [
