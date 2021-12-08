@@ -16,14 +16,14 @@ public interface Vcf.Collection<E> : Object, Iterable<E>
     {
         get
         {
-            var it = iterator ();
+            Iterator<E> it = iterator ();
             return !it.next ();
         }
     }
 
     public virtual bool any (PredicateFunc<E> predicate)
     {
-        foreach (var element in this)
+        foreach (E element in this)
         {
             if (predicate (element))
                 return true;
@@ -112,7 +112,7 @@ public interface Vcf.Collection<E> : Object, Iterable<E>
 
         do
         {
-            var element = it.@get ();
+            E element = it.@get ();
 
             if (predicate (element))
                 return element;
