@@ -7,7 +7,7 @@
 public class Vcf.Map<K,V> : Object, Iterable<MapEntry<K,V>?>, Collection<MapEntry<K,V>?>
 {
     private MapEntry<K,V>?[] _data = new MapEntry<K,V>?[5];
-    private HashFunc<K> hash_key = Utils.hash_func_for<K> ();
+    private HashFunc<K> _hash_key = Utils.hash_func_for<K> ();
 
     public uint size { get; private set; default = 0U; }
 
@@ -26,11 +26,11 @@ public class Vcf.Map<K,V> : Object, Iterable<MapEntry<K,V>?>, Collection<MapEntr
 
     public new V @get (K key)
     {
-        uint hashed_key = hash_key (key);
+        uint hashed_key = _hash_key (key);
 
         foreach (MapEntry<K,V>? entry in _data)
         {
-            if (hash_key (entry?.key) == hashed_key)
+            if (_hash_key (entry?.key) == hashed_key)
                 return entry?.@value;
         }
 
@@ -39,11 +39,11 @@ public class Vcf.Map<K,V> : Object, Iterable<MapEntry<K,V>?>, Collection<MapEntr
 
     public new void @set (K key, V @value)
     {
-        uint hashed_key = hash_key (key);
+        uint hashed_key = _hash_key (key);
 
         for (var i = 0U; i < _data.length; i++)
         {
-            if (hash_key (_data[i]?.key) == hashed_key)
+            if (_hash_key (_data[i]?.key) == hashed_key)
             {
                 _data[i] = { _data[i]?.key, @value };
                 return;

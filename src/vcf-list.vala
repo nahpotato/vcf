@@ -141,9 +141,9 @@ public class Vcf.List<E> : Object, Iterable<E>, Collection<E>, Equatable<List<E>
 
 private class Vcf.ListIterator<E> : Object, Iterable<E>, Iterator<E>
 {
-    private bool initialized = false;
-    private uint current_idx = 0U;
-    private E current = null;
+    private bool _initialized = false;
+    private uint _current_idx = 0U;
+    private E _current = null;
 
     public List<E>? list { private get; construct; default = null; }
 
@@ -154,7 +154,7 @@ private class Vcf.ListIterator<E> : Object, Iterable<E>, Iterator<E>
 
     private new E @get ()
     {
-        return current;
+        return _current;
     }
 
     private Iterator<E> iterator ()
@@ -164,18 +164,18 @@ private class Vcf.ListIterator<E> : Object, Iterable<E>, Iterator<E>
 
     private bool next () requires (list != null)
     {
-        if (initialized)
-            current_idx++;
+        if (_initialized)
+            _current_idx++;
 
-        initialized = true;
+        _initialized = true;
 
-        if (current_idx >= list.size)
+        if (_current_idx >= list.size)
         {
-            current = null;
+            _current = null;
             return false;
         }
 
-        current = list[current_idx];
+        _current = list[_current_idx];
 
         return true;
     }

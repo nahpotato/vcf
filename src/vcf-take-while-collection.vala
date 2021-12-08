@@ -29,8 +29,8 @@ private class Vcf.TakeWhileCollection<E> : Object, Iterable<E>, Collection<E>
 
 private class Vcf.TakeWhileIterator<E> : Object, Iterable<E>, Iterator<E>
 {
-    private bool taken = false;
-    private E current = null;
+    private bool _taken = false;
+    private E _current = null;
 
     public Iterator<E>? iterator { private get; construct; default = null; }
 
@@ -47,7 +47,7 @@ private class Vcf.TakeWhileIterator<E> : Object, Iterable<E>, Iterator<E>
 
     private new E @get ()
     {
-        return current;
+        return _current;
     }
 
     private Iterator<E> Iterable.iterator ()
@@ -61,13 +61,13 @@ private class Vcf.TakeWhileIterator<E> : Object, Iterable<E>, Iterator<E>
         if (!iterator.next ())
             return false;
 
-        if (!taken && closure.func (iterator.@get ()))
+        if (!_taken && closure.func (iterator.@get ()))
         {
-            current = iterator.@get ();
+            _current = iterator.@get ();
             return true;
         }
 
-        taken = true;
+        _taken = true;
 
         return false;
     }

@@ -28,7 +28,7 @@ private class Vcf.MapCollection<E,R> : Object, Iterable<R>, Collection<R>
 
 private class Vcf.MapIterator<E,R> : Object, Iterable<R>, Iterator<R>
 {
-    private R current = null;
+    private R _current = null;
 
     public Iterator<E>? iterator { private get; construct; default = null; }
 
@@ -44,7 +44,7 @@ private class Vcf.MapIterator<E,R> : Object, Iterable<R>, Iterator<R>
 
     private new R @get ()
     {
-        return current;
+        return _current;
     }
 
     private Iterator<R> Iterable.iterator ()
@@ -58,7 +58,7 @@ private class Vcf.MapIterator<E,R> : Object, Iterable<R>, Iterator<R>
         if (!iterator.next ())
             return false;
 
-        current = closure.func (iterator.@get ());
+        _current = closure.func (iterator.@get ());
 
         return true;
     }

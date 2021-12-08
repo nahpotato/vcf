@@ -29,8 +29,8 @@ private class Vcf.SkipWhileCollection<E> : Object, Iterable<E>, Collection<E>
 
 private class Vcf.SkipWhileIterator<E> : Object, Iterable<E>, Iterator<E>
 {
-    private bool skipped = false;
-    private E current = null;
+    private bool _skipped = false;
+    private E _current = null;
 
     public Iterator<E>? iterator { private get; construct; default = null; }
 
@@ -47,7 +47,7 @@ private class Vcf.SkipWhileIterator<E> : Object, Iterable<E>, Iterator<E>
 
     private new E @get ()
     {
-        return current;
+        return _current;
     }
 
     private Iterator<E> Iterable.iterator ()
@@ -60,9 +60,9 @@ private class Vcf.SkipWhileIterator<E> : Object, Iterable<E>, Iterator<E>
     {
         do
             if (!iterator.next ()) return false;
-        while (!skipped && closure.func (iterator.@get ()));
+        while (!_skipped && closure.func (iterator.@get ()));
 
-        current = iterator.@get ();
+        _current = iterator.@get ();
 
         return true;
     }
