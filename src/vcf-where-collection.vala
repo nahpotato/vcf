@@ -6,12 +6,8 @@
 
 private class Vcf.WhereCollection<E> : Object, Iterable<E>, Collection<E>
 {
-    public Iterable<E>? iterable { private get; construct; default = null; }
-
-    public PredicateFuncClosure<E>? closure
-    {
-        private get; construct; default = null;
-    }
+    public Iterable<E>? iterable { private get; construct; }
+    public PredicateFuncClosure<E>? closure { private get; construct; }
 
     public WhereCollection (Iterable<E> iterable, owned PredicateFunc<E> func)
     {
@@ -28,14 +24,10 @@ private class Vcf.WhereCollection<E> : Object, Iterable<E>, Collection<E>
 
 private class Vcf.WhereIterator<E> : Object, Iterable<E>, Iterator<E>
 {
-    private E _current = null;
+    private E _current;
 
-    public Iterator<E>? iterator { private get; construct; default = null; }
-
-    public PredicateFuncClosure<E>? closure
-    {
-        private get; construct; default = null;
-    }
+    public Iterator<E>? iterator { private get; construct; }
+    public PredicateFuncClosure<E>? closure { private get; construct; }
 
     public WhereIterator (Iterator<E> iterator, PredicateFuncClosure<E> closure)
     {

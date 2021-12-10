@@ -6,8 +6,8 @@
 
 private class Vcf.SkipCollection<E> : Object, Iterable<E>, Collection<E>
 {
-    public Iterable<E>? iterable { private get; construct; default = null; }
-    public uint amount { private get; construct; default = 0U; }
+    public Iterable<E>? iterable { private get; construct; }
+    public uint amount { private get; construct; }
 
     public SkipCollection (Iterable<E> iterable, uint amount)
     {
@@ -22,11 +22,11 @@ private class Vcf.SkipCollection<E> : Object, Iterable<E>, Collection<E>
 
 private class Vcf.SkipIterator<E> : Object, Iterable<E>, Iterator<E>
 {
-    private uint _count = 0U;
-    private E _current = null;
+    private uint _count;
+    private E _current;
 
-    public Iterator<E>? iterator { private get; construct; default = null; }
-    public uint amount { private get; construct; default = 0U; }
+    public Iterator<E>? iterator { private get; construct; }
+    public uint amount { private get; construct; }
 
     public SkipIterator (Iterator<E> iterator, uint amount)
     {

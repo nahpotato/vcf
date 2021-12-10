@@ -6,12 +6,8 @@
 
 private class Vcf.SkipWhileCollection<E> : Object, Iterable<E>, Collection<E>
 {
-    public Iterable<E>? iterable { private get; construct; default = null; }
-
-    public PredicateFuncClosure<E>? closure
-    {
-        private get; construct; default = null;
-    }
+    public Iterable<E>? iterable { private get; construct; }
+    public PredicateFuncClosure<E>? closure { private get; construct; }
 
     public SkipWhileCollection (Iterable<E> iterable,
                                 owned PredicateFunc<E> func)
@@ -29,15 +25,11 @@ private class Vcf.SkipWhileCollection<E> : Object, Iterable<E>, Collection<E>
 
 private class Vcf.SkipWhileIterator<E> : Object, Iterable<E>, Iterator<E>
 {
-    private bool _skipped = false;
-    private E _current = null;
+    private bool _skipped;
+    private E _current;
 
-    public Iterator<E>? iterator { private get; construct; default = null; }
-
-    public PredicateFuncClosure<E>? closure
-    {
-        private get; construct; default = null;
-    }
+    public Iterator<E>? iterator { private get; construct; }
+    public PredicateFuncClosure<E>? closure { private get; construct; }
 
     public SkipWhileIterator (Iterator<E> iterator,
                               PredicateFuncClosure<E> closure)

@@ -6,12 +6,8 @@
 
 private class Vcf.TakeWhileCollection<E> : Object, Iterable<E>, Collection<E>
 {
-    public Iterable<E>? iterable { private get; construct; default = null; }
-
-    public PredicateFuncClosure<E>? closure
-    {
-        private get; construct; default = null;
-    }
+    public Iterable<E>? iterable { private get; construct; }
+    public PredicateFuncClosure<E>? closure { private get; construct; }
 
     public TakeWhileCollection (Iterable<E> iterable,
                                 owned PredicateFunc<E> func)
@@ -29,15 +25,11 @@ private class Vcf.TakeWhileCollection<E> : Object, Iterable<E>, Collection<E>
 
 private class Vcf.TakeWhileIterator<E> : Object, Iterable<E>, Iterator<E>
 {
-    private bool _taken = false;
-    private E _current = null;
+    private bool _taken;
+    private E _current;
 
-    public Iterator<E>? iterator { private get; construct; default = null; }
-
-    public PredicateFuncClosure<E>? closure
-    {
-        private get; construct; default = null;
-    }
+    public Iterator<E>? iterator { private get; construct; }
+    public PredicateFuncClosure<E>? closure { private get; construct; }
 
     public TakeWhileIterator (Iterator<E> iterator,
                               PredicateFuncClosure<E> closure)

@@ -6,8 +6,8 @@
 
 private class Vcf.ConcatCollection<E> : Object, Iterable<E>, Collection<E>
 {
-    public Iterable<E>? iterable1 { private get; construct; default = null; }
-    public Iterable<E>? iterable2 { private get; construct; default = null; }
+    public Iterable<E>? iterable1 { private get; construct; }
+    public Iterable<E>? iterable2 { private get; construct; }
 
     public ConcatCollection (Iterable<E> iterable1, Iterable<E> iterable2)
     {
@@ -24,11 +24,11 @@ private class Vcf.ConcatCollection<E> : Object, Iterable<E>, Collection<E>
 
 private class Vcf.ConcatIterator<E> : Object, Iterable<E>, Iterator<E>
 {
-    private Iterator<E>? _current_it = null;
-    private E _current = null;
+    private Iterator<E>? _current_it;
+    private E _current;
 
-    public Iterator<E>? iterator1 { private get; construct; default = null; }
-    public Iterator<E>? iterator2 { private get; construct; default = null; }
+    public Iterator<E>? iterator1 { private get; construct; }
+    public Iterator<E>? iterator2 { private get; construct; }
 
     public ConcatIterator (Iterator<E> iterator1, Iterator<E> iterator2)
     {

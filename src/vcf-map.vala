@@ -9,7 +9,7 @@ public class Vcf.Map<K,V> : Object, Iterable<MapEntry<K,V>?>, Collection<MapEntr
     private MapEntry<K,V>?[] _data = new MapEntry<K,V>?[5];
     private HashFunc<K> _hash_key = Utils.hash_func_for<K> ();
 
-    public uint size { get; private set; default = 0U; }
+    public uint size { get; private set; }
 
     public Map () {}
 

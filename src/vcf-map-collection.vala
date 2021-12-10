@@ -6,12 +6,8 @@
 
 private class Vcf.MapCollection<E,R> : Object, Iterable<R>, Collection<R>
 {
-    public Iterable<E>? iterable { private get; construct; default = null; }
-
-    public MapFuncClosure<E,R>? closure
-    {
-        private get; construct; default = null;
-    }
+    public Iterable<E>? iterable { private get; construct; }
+    public MapFuncClosure<E,R>? closure { private get; construct; }
 
     public MapCollection (Iterable<E> iterable, owned MapFunc<E,R> func)
     {
@@ -28,14 +24,10 @@ private class Vcf.MapCollection<E,R> : Object, Iterable<R>, Collection<R>
 
 private class Vcf.MapIterator<E,R> : Object, Iterable<R>, Iterator<R>
 {
-    private R _current = null;
+    private R _current;
 
-    public Iterator<E>? iterator { private get; construct; default = null; }
-
-    public MapFuncClosure<E,R>? closure
-    {
-        private get; construct; default = null;
-    }
+    public Iterator<E>? iterator { private get; construct; }
+    public MapFuncClosure<E,R>? closure { private get; construct; }
 
     public MapIterator (Iterator<E> iterator, MapFuncClosure<E,R> closure)
     {

@@ -6,12 +6,8 @@
 
 private class Vcf.FlatCollection<E,R> : Object, Iterable<R>, Collection<R>
 {
-    public Iterable<E>? iterable { private get; construct; default = null; }
-
-    public FlatFuncClosure<E,R>? closure
-    {
-        private get; construct; default = null;
-    }
+    public Iterable<E>? iterable { private get; construct; }
+    public FlatFuncClosure<E,R>? closure { private get; construct; }
 
     public FlatCollection (Iterable<E> iterable, owned FlatFunc<E,R> func)
     {
@@ -28,15 +24,11 @@ private class Vcf.FlatCollection<E,R> : Object, Iterable<R>, Collection<R>
 
 private class Vcf.FlatIterator<E,R> : Object, Iterable<R>, Iterator<R>
 {
-    private Iterator<R>? _current_it = null;
-    private R _current = null;
+    private Iterator<R>? _current_it;
+    private R _current;
 
-    public Iterator<E>? iterator { private get; construct; default = null; }
-
-    public FlatFuncClosure<E,R>? closure
-    {
-        private get; construct; default = null;
-    }
+    public Iterator<E>? iterator { private get; construct; }
+    public FlatFuncClosure<E,R>? closure { private get; construct; }
 
     public FlatIterator (Iterator<E> iterator, FlatFuncClosure<E,R> closure)
     {
