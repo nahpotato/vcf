@@ -4,12 +4,12 @@
  * SPDX-License-Identifier: LGPL-3.0-or-later
  */
 
-private class Vcf.MapCollection<E,R> : Object, Iterable<R>, Collection<R>
+private class Vcf.MappedCollection<E,R> : Object, Iterable<R>, Collection<R>
 {
     public Iterable<E>? iterable { private get; construct; }
     public MapFuncClosure<E,R>? closure { private get; construct; }
 
-    public MapCollection (Iterable<E> iterable, owned MapFunc<E,R> func)
+    public MappedCollection (Iterable<E> iterable, owned MapFunc<E,R> func)
     {
         Object (iterable: iterable,
             closure: new MapFuncClosure<E,R> ((owned) func));
@@ -18,18 +18,18 @@ private class Vcf.MapCollection<E,R> : Object, Iterable<R>, Collection<R>
     private Iterator<R> iterator () requires (iterable != null)
                                     requires (closure != null)
     {
-        return new MapIterator<E,R> (iterable.iterator (), closure);
+        return new MappedIterator<E,R> (iterable.iterator (), closure);
     }
 }
 
-private class Vcf.MapIterator<E,R> : Object, Iterable<R>, Iterator<R>
+private class Vcf.MappedIterator<E,R> : Object, Iterable<R>, Iterator<R>
 {
     private R _current;
 
     public Iterator<E>? iterator { private get; construct; }
     public MapFuncClosure<E,R>? closure { private get; construct; }
 
-    public MapIterator (Iterator<E> iterator, MapFuncClosure<E,R> closure)
+    public MappedIterator (Iterator<E> iterator, MapFuncClosure<E,R> closure)
     {
         Object (iterator: iterator, closure: closure);
     }

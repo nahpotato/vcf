@@ -226,7 +226,7 @@ public interface Vcf.Collection<E> : Object, Iterable<E>
 
     public virtual Collection<R> map<R> (owned MapFunc<E,R> func)
     {
-        return new MapCollection<E,R> (this, (owned) func);
+        return new MappedCollection<E,R> (this, (owned) func);
     }
 
     public virtual bool none (PredicateFunc<E> predicate)

@@ -10,7 +10,7 @@ vcf_sources = [
   'vcf-iterator.vala',
   'vcf-list.vala',
   'vcf-map.vala',
-  'vcf-map-collection.vala',
+  'vcf-mapped-collection.vala',
   'vcf-skip-collection.vala',
   'vcf-skip-while-collection.vala',
   'vcf-stringifiable.vala',
